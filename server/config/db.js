@@ -16,7 +16,7 @@ export function getPool() {
     };
 
     if (process.env.DB_SSL === 'true') {
-      config.ssl = { rejectUnauthorized: true };
+      config.ssl = { rejectUnauthorized: false };
     }
 
     pool = mysql.createPool(config);

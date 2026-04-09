@@ -1,6 +1,10 @@
-import 'dotenv/config';
+import dotenv from 'dotenv';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+dotenv.config({ path: join(__dirname, '..', '.env') });
+
 import express from 'express';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
@@ -11,7 +15,6 @@ import taskRoutes from './routes/tasks.js';
 import gamificationRoutes from './routes/gamification.js';
 import toolRoutes from './routes/tools.js';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
 const PORT = process.env.PORT || 3001;
 
