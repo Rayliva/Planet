@@ -11,7 +11,8 @@ async function request(path, options = {}) {
   });
 
   if (res.status === 401) {
-    window.location.href = '/planet/login';
+    const onAuthPage = ['/planet/login', '/planet/register'].some((p) => window.location.pathname.startsWith(p));
+    if (!onAuthPage) window.location.href = '/planet/login';
     return null;
   }
 
