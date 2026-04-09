@@ -1,4 +1,4 @@
-const BASE = '/api';
+const BASE = '/planet/api';
 
 async function request(path, options = {}) {
   const isGuest = localStorage.getItem('planet-guest') === 'true';
@@ -11,7 +11,7 @@ async function request(path, options = {}) {
   });
 
   if (res.status === 401) {
-    window.location.href = '/login';
+    window.location.href = '/planet/login';
     return null;
   }
 
