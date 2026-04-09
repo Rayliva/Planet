@@ -1,0 +1,143 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "DM Sans", system-ui, sans-serif;
+
+  /* Productivity zone: warm tones */
+  --color-warm-orange: #ff8c42;
+  --color-warm-coral: #ff6b6b;
+  --color-warm-yellow: #ffd166;
+  --color-warm-peach: #ffb088;
+  --color-warm-rose: #f4845f;
+  --color-warm-amber: #f5a623;
+
+  /* Relaxation zone: cool tones */
+  --color-cool-teal: #4ecdc4;
+  --color-cool-lavender: #a78bfa;
+  --color-cool-sky: #7ec8e3;
+  --color-cool-mint: #81ecb6;
+  --color-cool-periwinkle: #818cf8;
+  --color-cool-slate: #94a3b8;
+
+  /* Core palette */
+  --color-stardust: #fbbf24;
+  --color-bg: #fefcf9;
+  --color-bg-dark: #0f0f14;
+  --color-surface: #ffffff;
+  --color-surface-dark: #1a1a24;
+  --color-ink: #1e1e2e;
+  --color-ink-dark: #e8e6f0;
+  --color-ink-muted: #6b7280;
+  --color-ink-muted-dark: #9ca3af;
+  --color-border: #e5e7eb;
+  --color-border-dark: #2d2d3d;
+
+  /* Extra tool colors */
+  --color-bingo: #ff6b6b;
+  --color-wheel: #ff8c42;
+  --color-bet: #ffd166;
+  --color-jar: #4ecdc4;
+  --color-pomodoro: #f4845f;
+  --color-calendar: #7ec8e3;
+  --color-boss: #f5a623;
+  --color-garden: #81ecb6;
+  --color-fortress: #a78bfa;
+  --color-dice: #ffb088;
+  --color-void: #374151;
+  --color-breathing: #818cf8;
+  --color-soundscape: #94a3b8;
+  --color-doodle: #fbbf24;
+  --color-affirmations: #a78bfa;
+  --color-stretch: #4ecdc4;
+  --color-mindful: #7ec8e3;
+
+  --radius-card: 1rem;
+  --radius-pill: 9999px;
+  --radius-btn: 0.75rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.dark body {
+  background-color: var(--color-bg-dark);
+  color: var(--color-ink-dark);
+}
+
+.dark .bg-surface { background-color: var(--color-surface-dark); }
+.dark .border-border { border-color: var(--color-border-dark); }
+.dark .text-ink { color: var(--color-ink-dark); }
+.dark .text-ink-muted { color: var(--color-ink-muted-dark); }
+.dark .bg-white { background-color: var(--color-surface-dark); }
+.dark .bg-bg { background-color: var(--color-bg-dark); }
+.dark .bg-gray-50 { background-color: #1f1f2e; }
+.dark .bg-gray-100 { background-color: #252535; }
+.dark .bg-gray-200 { background-color: #2d2d3d; }
+.dark .hover\:bg-gray-100:hover { background-color: #252535; }
+.dark .hover\:bg-gray-200:hover { background-color: #2d2d3d; }
+.dark .bg-red-50 { background-color: #2d1f1f; }
+.dark .bg-green-50 { background-color: #1f2d1f; }
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.animate-fade-in-up { animation: fadeInUp 0.3s ease-out; }
+.animate-pulse-slow { animation: pulse-slow 2s ease-in-out infinite; }
+
+/* ── Jar of Marbles ── */
+
+@keyframes jarCelebrate {
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  15%  { transform: rotate(-2deg) scale(1.02); }
+  30%  { transform: rotate(2deg) scale(1.03); }
+  45%  { transform: rotate(-1.5deg) scale(1.02); }
+  60%  { transform: rotate(1deg) scale(1.01); }
+  80%  { transform: rotate(0deg) scale(1); }
+}
+
+@keyframes celebrationBurst {
+  0%   { transform: scale(0); opacity: 0.7; }
+  50%  { opacity: 0.4; }
+  100% { transform: scale(3); opacity: 0; }
+}
+
+.jar-celebrate { animation: jarCelebrate 0.8s ease-in-out; }
+
+.celebration-burst {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(251,191,36,0.5) 0%, rgba(78,205,196,0.3) 50%, transparent 70%);
+  animation: celebrationBurst 1s ease-out forwards;
+}
+
+.scrollbar-thin::-webkit-scrollbar { width: 4px; }
+.scrollbar-thin::-webkit-scrollbar-track { background: transparent; }
+.scrollbar-thin::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 4px; }
+.scrollbar-thin::-webkit-scrollbar-thumb:hover { background: var(--color-ink-muted); }
